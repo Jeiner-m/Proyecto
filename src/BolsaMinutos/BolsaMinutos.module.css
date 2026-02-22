@@ -25,16 +25,20 @@ padding: 20px;
 .contendor_header{
   display:  flex;
   justify-content: space-between;
+
 }
 
-.contendor_header button{
-   
+.contendor_header h1{
+	font-size: 1.5rem;
 }
-
 
 
 .btn_registrar{
-  
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 20px;
+    border-radius: 5px;
 }
 
 
@@ -52,4 +56,28 @@ padding: 20px;
 .input_label{
 	display:  flex;
 	gap: 20px;
+}
+
+
+
+
+.contenedor_tabla table{
+  padding: 0;
+  margin: 0;
+}
+
+
+.contenedor_tabla thead{
+	background-color: red;
+
+}
+
+.contenedor_tabla th{
+	padding: 5px 10px;
+		font-size: 1rem;
+		border-radius: 5px;
+}
+
+.contenedor_tabla tbody{
+padding: 5px;
 }
