@@ -1,0 +1,55 @@
+
+
+
+
+.container{
+	background-color: grey;
+	display:  flex;
+	padding: 10px;
+	flex-direction: column;
+   
+height: 100vh;
+}
+
+.contendor_todo{
+padding: 20px;
+	margin: auto;
+ display:  flex;
+ flex-direction: column;
+ background-color: aliceblue;
+ 
+}
+
+
+
+.contendor_header{
+  display:  flex;
+  justify-content: space-between;
+}
+
+.contendor_header button{
+   
+}
+
+
+
+.btn_registrar{
+  
+}
+
+
+.contenedor_formulario{
+	display:  flex;
+	flex-direction: column;
+	padding: 20px;
+}
+
+.contenedor_formulario form {
+	margin: auto;
+	justify-content: space-between;
+}
+
+.input_label{
+	display:  flex;
+	gap: 20px;
+}
