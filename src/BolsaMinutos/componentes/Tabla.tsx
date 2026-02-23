@@ -1,31 +1,63 @@
-import style from '../BolsaMinutos.module.css'
+import React from "react";
+import type { Bolsa } from "../Bolsa";
+import type { Usuario } from "../usuarios";
+import style from "../BolsaMinutos.module.css";
 
-export default function Tabla() {
-	return(
+interface Props {
+  bolsas: Bolsa[];
+  deleteBag: (cumster_id: number) => void;
+  manejarEditar: (bolsa: Bolsa) => void;
+  usuarios: Usuario[];
+}
 
-   <div className={style.contenedor_tabla}>
-   	   
-   	  <table>
-   	  	<thead>
-   	  		<tr>
-   	  			<th>Tipo</th>
-   	  			<th>Minutos agignados</th>
-   	  			<th>Perido inicio</th>
-   	  			<th>Periodo fin</th>
-   	  		</tr>
-   	  	</thead>
-   	  	<tbody>
-   	  		<tr>
-   	  			<td>Plan</td>
-   	  			<td>1.0000</td>
-   	  			<td>2026-02-01 T00:00:00</td>
-   	  			<td>2026-02-28 T23:59:59</td>
-   	  		</tr>
-   	  	</tbody>
-   	  </table>
+export default function Tabla({
+  bolsas,
+  deleteBag,
+  manejarEditar,
+  usuarios
+}: Props) {
+  const getUserName = (usuario_id: number) => {
+    const usuario = usuarios.find(u => u.id === usuario_id);
+    return usuario ? usuario.nombre : "No encontrado";
+  };
 
-   </div>
-  
- )
-
+  return (
+    <div className={style.contenedor_tabla}>
+      <table>
+        <thead>
+          <tr>
+            <th>Tipo</th>
+            <th>Usuario</th>
+            <th>Minutos</th>
+            <th>Inicio</th>
+            <th>Fin</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {bolsas.map(bolsa => (
+            <tr key={bolsa.cumster_id}>
+              <td>{bolsa.tipo}</td>
+              <td>{getUserName(bolsa.usuario_id)}</td>
+              <td>{bolsa.minutos_asignados}</td>
+              <td>{bolsa.periodo_inicio}</td>
+              <td>{bolsa.periodo_fin}</td>
+              <td>
+                <button
+                  onClick={() => deleteBag(bolsa.cumster_id)}
+                >
+                  Eliminar
+                </button>
+                <button
+                  onClick={() => manejarEditar(bolsa)}
+                >
+                  Editar
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
 }
